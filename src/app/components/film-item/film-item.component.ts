@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Film, SearchFilm} from '../../models/film.model';
+import { SearchFilm} from '../../models/film.model';
 import {DataService} from '../../shared/data.service';
 import {ActivatedRoute} from '@angular/router';
 
