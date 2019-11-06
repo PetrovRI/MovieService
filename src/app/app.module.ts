@@ -24,11 +24,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
+import { FilmItemComponent } from './components/film-item/film-item.component';
+import { FilmPageComponent } from './pages/film-page/film-page.component';
 
 registerLocaleData(en);
 
 const appRoutes: Routes = [
   { path: '', component: HomePageComponent},
+  { path: 'film/:title', component: FilmPageComponent},
   { path: 'filmslist', component: FilmsListPageComponent},
 ];
 
@@ -39,7 +42,9 @@ const appRoutes: Routes = [
     FilmsListComponent,
     MainNavigationComponent,
     HomePageComponent,
-    FilmsListPageComponent
+    FilmsListPageComponent,
+    FilmItemComponent,
+    FilmPageComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
