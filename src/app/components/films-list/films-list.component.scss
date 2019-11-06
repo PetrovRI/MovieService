@@ -1,0 +1,22 @@
+.film-list {
+
+  &__item {
+    width: 300px;
+  }
+
+  &__title {
+    display: block;
+    font-size: 20px;
+  }
+
+  &__date {
+    display: block;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+  }
+}

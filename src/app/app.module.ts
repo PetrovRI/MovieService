@@ -5,19 +5,21 @@ import { NgModule } from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
+// store
+import {StoreModule} from '@ngrx/store';
+import {reducer} from "./store/reducers/films.reducer";
 
+// components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
+import {FilmsListComponent} from './components/films-list/films-list.component';
 import { MainNavigationComponent } from './components/main-navigation/main-navigation.component';
 
 // pages
 import {HomePageComponent} from './pages/home-page/home-page.component';
 import {FilmsListPageComponent} from './pages/films-list-page/films-list-page.component';
-import { IconsProviderModule } from './icons-provider.module';
 import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
@@ -34,17 +36,19 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HeaderComponent,
+    FilmsListComponent,
     MainNavigationComponent,
     HomePageComponent,
     FilmsListPageComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
+    StoreModule.forRoot({filmPage: reducer}),
     BrowserModule,
     AppRoutingModule,
-    IconsProviderModule,
     NgZorroAntdModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule
   ],

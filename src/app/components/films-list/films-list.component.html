@@ -1,0 +1,16 @@
+<div class="film-list">
+  <ul class="film-list__list">
+    <li class="film-list__item" *ngFor="let item of (filmState | async).films">
+      <a [routerLink]="['/film', item.Title]">
+        <div class="film-list__img">
+          <img src={{item.Poster}} alt="" >
+        </div>
+        <span class="film-list__title">
+            {{item.Title}}
+      </span>
+        <span class="film-list__date">{{item.Year}}, {{item.Type}}</span>
+      </a>
+      <button nz-button nzType="primary">добавить в избранное</button>
+    </li>
+  </ul>
+</div>
