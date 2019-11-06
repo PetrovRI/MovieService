@@ -1,0 +1,7 @@
+<nav class="main-nav">
+  <ul class="main-nav__list">
+    <li class="main-nav__item" *ngFor="let item of navItem">
+      <a class="main-nav__link" href="#" [routerLink]="item.routerLink">{{item.section}}</a>
+    </li>
+  </ul>
+</nav>
