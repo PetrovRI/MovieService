@@ -22,7 +22,6 @@ export class FilmsListComponent implements OnInit {
   // public filmState: Observable<IFilms>;
 
   ngOnInit() {
-    this.filmState = this.store.select('filmPage');  // передаем даные в filmState
-    console.log(this.filmState);
+    this.filmState = this.store.select('filmPage');
   }
 }

@@ -27,6 +27,7 @@ import en from '@angular/common/locales/en';
 import { FilmItemComponent } from './components/film-item/film-item.component';
 import { FilmPageComponent } from './pages/film-page/film-page.component';
 import { PromoSliderComponent } from './components/promo-slider/promo-slider.component';
+import { SearchComponent } from './components/search/search.component';
 
 registerLocaleData(en);
 
@@ -46,7 +47,8 @@ const appRoutes: Routes = [
     FilmsListPageComponent,
     FilmItemComponent,
     FilmPageComponent,
-    PromoSliderComponent
+    PromoSliderComponent,
+    SearchComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
