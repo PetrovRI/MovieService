@@ -11,7 +11,6 @@ import {ActivatedRoute} from '@angular/router';
 export class FilmItemComponent implements OnInit {
 
   public film: SearchFilm;
-
   constructor(private dataService: DataService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {

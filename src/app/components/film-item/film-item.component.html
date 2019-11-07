@@ -1,12 +1,48 @@
 <div class="film-item">
-  <div class="film-item__img">
-    <img [src]="film.Poster" alt="">
+  <div class="film-item__wrapper-description">
+    <div class="film-item__img">
+      <img [src]="film.Poster" alt="">
+    </div>
+    <div class="film-item__description">
+      <h3 class="film-item__title">{{film.Title}}</h3>
+      <ul>
+        <li>
+          <span>Год</span>{{film.Year}}
+        </li>
+        <li>
+          <span>Страна</span>{{film.Country}}
+        </li>
+        <li>
+          <span>Студия</span>{{film.Production}}
+        </li>
+        <li>
+          <span>Время</span>{{film.Metascore}}
+        </li>
+        <li>
+          <span>Жанр</span>{{film.Genre}}
+        </li>
+        <li>
+          <span>Продюсер</span>{{film.Director}}
+        </li>
+        <li>
+          <span>Сценарий</span>{{film.Writer}}
+        </li>
+        <li>
+          <span>Язык</span>{{film.Language}}
+        </li>
+        <li>
+          <span>Награды</span>{{film.Awards}}
+        </li>
+      </ul>
+    </div>
+    <div class="film-item__actors">
+      <span>В ролях</span>
+      <ul class="film-item__actor-list">
+        <li class="film-item__actor-item">{{film.Actors}}</li>
+      </ul>
+    </div>
   </div>
-  <h3 class="film-item__title">{{film.Title}}</h3>
-  <span>В ролях {{film.Actors}}</span>
-  <ul class="film-item__list-info">
-    <li class="film-item__item">
-
-    </li>
-  </ul>
+  <div>
+    <p>{{film.Plot}}</p>
+  </div>
 </div>

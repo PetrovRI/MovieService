@@ -1,0 +1,22 @@
+.film-item {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0;
+
+  &__wrapper-description {
+    display: flex;
+  }
+
+  &__description {
+    margin-left: 60px;
+  }
+
+  &__actors {
+    margin-left: auto;
+  }
+
+  &__actor-list {
+    display: flex;
+    flex-direction: column;
+  }
+}

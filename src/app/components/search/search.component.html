@@ -12,15 +12,9 @@
       <ng-template #suffixIcon>
         <i nz-icon nzType="search"></i>
       </ng-template>
-      <nz-autocomplete #auto>
-        <nz-auto-optgroup *ngFor="let group of films" [nzLabel]="groupTitle">
-          <ng-template #groupTitle>
-            <span
-              >
-              <a class="more-link" href="https://www.google.com/search?q=ng+zorro" target="_blank">{{group.Title}}</a>
-            </span>
-          </ng-template>
-
-        </nz-auto-optgroup>
+      <nz-autocomplete #auto [nzBackfill]="true">
+        <nz-auto-option *ngFor="let filmTitle of searchData" [nzLabel]="filmTitle" [nzValue]="filmTitle">
+          <a class="more-link" [routerLink]="['/film', filmTitle]">{{ filmTitle }}</a>
+        </nz-auto-option>
       </nz-autocomplete>
     </div>
