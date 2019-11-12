@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 // store
 import {StoreModule} from '@ngrx/store';
-import {reducer} from "./store/reducers/films.reducer";
+import {reducer} from './store/reducers/films.reducer';
 
 // components
 import { AppComponent } from './app.component';
@@ -33,7 +33,7 @@ registerLocaleData(en);
 
 const appRoutes: Routes = [
   { path: '', component: HomePageComponent},
-  { path: 'film/:title', component: FilmPageComponent},
+  { path: 'film/:id', component: FilmPageComponent},
   { path: 'filmslist', component: FilmsListPageComponent},
 ];
 

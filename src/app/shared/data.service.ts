@@ -16,7 +16,9 @@ export class DataService {
   public films: Film[] = [];
   public film: SearchFilm = {};
   public apiUrlSuperman = 'http://www.omdbapi.com/?apikey=9816ce92&s=superman';
-  public apiUrlAll = 'http://www.omdbapi.com/?apikey=9816ce92&t=';
+  public apiUrlAll = 'http://www.omdbapi.com/?apikey=9816ce92&s=';
+  public apiUrlSearchId = 'http://www.omdbapi.com/?apikey=9816ce92&i=';
+  // public apiUrlAll = 'http://www.omdbapi.com/?apikey=9816ce92&t=';
 
 
   getData() {
@@ -35,11 +37,16 @@ export class DataService {
     return this.http.get<SearchFilm>(this.apiUrlAll + '/' + title);
   }
 
-  getSearchFilm(searchValue: string) {
-    this.http.get<SearchFilm>(`${this.apiUrlAll}${searchValue}`).subscribe((data: IFilms) => {
-      console.log(data);
+  getFilmId(id: string): Observable<SearchFilm> {
+    return this.http.get<SearchFilm>(this.apiUrlSearchId + id + '&plot=full');
+  }
+
+  getSearchFilm(searchValue: string): Observable<IFilms> {
+    this.http.get<IFilms>(`${this.apiUrlAll}${searchValue}`).subscribe((data: IFilms) => {
       this.film = data;
+      console.log(data);
     });
+    return this.http.get<IFilms>(`${this.apiUrlAll}${searchValue}`);
   }
 }
 

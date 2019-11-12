@@ -1,20 +1,21 @@
 
     <div class="example-input">
+      <span *ngFor="let filmTitle of products.Title">{{filmTitle}}</span>
       <nz-input-group nzSize="large" [nzSuffix]="suffixIcon">
         <input
-          placeholder="input here"
+          placeholder="поиск"
           nz-input
-          [(ngModel)]="inputValue"
-          (ngModelChange)="onChange($event)"
+          (input)="onSearchInput($event)"
           [nzAutocomplete]="auto"
         />
       </nz-input-group>
       <ng-template #suffixIcon>
         <i nz-icon nzType="search"></i>
       </ng-template>
-      <nz-autocomplete #auto [nzBackfill]="true">
-        <nz-auto-option *ngFor="let filmTitle of searchData" [nzLabel]="filmTitle" [nzValue]="filmTitle">
-          <a class="more-link" [routerLink]="['/film', filmTitle]">{{ filmTitle }}</a>
+      <nz-autocomplete #auto [nzBackfill]="true" >
+        <nz-auto-option *ngFor="let filmTitle of products" [nzLabel]="filmTitle.Title" [nzValue]="filmTitle.Title">
+<!--          <a class="more-link" [routerLink]="['/film', filmTitle]">{{ filmTitle }}</a>-->
+          <a routerLink="/film/{{filmTitle.imdbID}}" >{{filmTitle.Title}}</a>
         </nz-auto-option>
       </nz-autocomplete>
     </div>

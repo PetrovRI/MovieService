@@ -15,10 +15,11 @@ export class FilmItemComponent implements OnInit {
 
   ngOnInit() {
 
-    const filmTitle = this.activatedRoute.snapshot.paramMap.get('title');
-    console.log(filmTitle);
-    this.dataService.getFilmTitle(filmTitle)
+    const filmId = this.activatedRoute.snapshot.paramMap.get('id');
+    console.log(filmId);
+    this.dataService.getFilmId(filmId)
       .subscribe(film => {
+        console.log(film);
         this.film = film;
       });
   }
