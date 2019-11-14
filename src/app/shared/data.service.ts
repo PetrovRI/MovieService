@@ -25,11 +25,6 @@ export class DataService {
       this.store.dispatch(new LoadFilms(this.films));
     });
   }
-  //
-  // getFilmId(filmId: number): Observable<Film> {
-  //   return this.http.get<Film>(this.apiUrlSuperman + '/' + filmId);
-  // }
-
 
   getFilmTitle(title: string): Observable<SearchFilm> {
     return this.http.get<SearchFilm>(this.apiUrlAll + '/' + title);

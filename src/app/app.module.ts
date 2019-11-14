@@ -7,33 +7,36 @@ import { AppRoutingModule } from './app-routing.module';
 
 // store
 import {StoreModule} from '@ngrx/store';
-import {reducer} from "./store/reducers/films.reducer";
+import {reducer} from './store/reducers/films.reducer';
 
 // components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import {FilmsListComponent} from './components/films-list/films-list.component';
 import { MainNavigationComponent } from './components/main-navigation/main-navigation.component';
+import { FilmItemComponent } from './components/film-item/film-item.component';
+import { FilmPageComponent } from './pages/film-page/film-page.component';
+import { PromoSliderComponent } from './components/promo-slider/promo-slider.component';
+import { SearchInputComponent } from './components/search-input/search-input.component';
 
 // pages
 import {HomePageComponent} from './pages/home-page/home-page.component';
 import {FilmsListPageComponent} from './pages/films-list-page/films-list-page.component';
+
+//
 import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
-import { FilmItemComponent } from './components/film-item/film-item.component';
-import { FilmPageComponent } from './pages/film-page/film-page.component';
-import { PromoSliderComponent } from './components/promo-slider/promo-slider.component';
-import { SearchComponent } from './components/search/search.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 registerLocaleData(en);
 
 const appRoutes: Routes = [
   { path: '', component: HomePageComponent},
-  { path: 'film/:title', component: FilmPageComponent},
+  { path: 'film/:id', component: FilmPageComponent},
   { path: 'filmslist', component: FilmsListPageComponent},
 ];
 
@@ -48,7 +51,8 @@ const appRoutes: Routes = [
     FilmItemComponent,
     FilmPageComponent,
     PromoSliderComponent,
-    SearchComponent
+    SearchInputComponent,
+    FooterComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
