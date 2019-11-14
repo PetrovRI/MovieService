@@ -28,6 +28,7 @@ import { FilmItemComponent } from './components/film-item/film-item.component';
 import { FilmPageComponent } from './pages/film-page/film-page.component';
 import { PromoSliderComponent } from './components/promo-slider/promo-slider.component';
 import { SearchComponent } from './components/search/search.component';
+import { SearchInputComponent } from './components/search-input/search-input.component';
 
 registerLocaleData(en);
 
@@ -48,7 +49,8 @@ const appRoutes: Routes = [
     FilmItemComponent,
     FilmPageComponent,
     PromoSliderComponent,
-    SearchComponent
+    SearchComponent,
+    SearchInputComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

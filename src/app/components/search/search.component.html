@@ -1,7 +1,6 @@
 
     <div class="example-input">
-      <span *ngFor="let filmTitle of products.Title">{{filmTitle}}</span>
-      <nz-input-group nzSize="large" [nzSuffix]="suffixIcon">
+      <nz-input-group nzSize="large"  [nzSuffix]="suffixIcon">
         <input
           placeholder="поиск"
           nz-input
@@ -14,8 +13,26 @@
       </ng-template>
       <nz-autocomplete #auto [nzBackfill]="true" >
         <nz-auto-option *ngFor="let filmTitle of products" [nzLabel]="filmTitle.Title" [nzValue]="filmTitle.Title">
-<!--          <a class="more-link" [routerLink]="['/film', filmTitle]">{{ filmTitle }}</a>-->
           <a routerLink="/film/{{filmTitle.imdbID}}" >{{filmTitle.Title}}</a>
         </nz-auto-option>
       </nz-autocomplete>
     </div>
+
+<!--<div class="site-search">-->
+<!--&lt;!&ndash;  (change)="onSearchInput($event)"&ndash;&gt;-->
+<!--  <input type="text"  [(ngModel)]="value" placeholder="поиск" (input)="onSearchInput($event)">-->
+<!--  <div class="search-tools">-->
+<!--    <span class="close-search">-->
+<!--      <i class="icon-cross" (click)="onCloseSearch()"></i>-->
+<!--    </span>-->
+<!--  </div>-->
+<!--  <div class="search-results">-->
+<!--    searchData-->
+<!--    <ul *ngIf="show">-->
+<!--&lt;!&ndash;    <ul *ngIf="value.length > 2">&ndash;&gt;-->
+<!--      <li *ngFor="let filmTitle of products">-->
+<!--        <a routerLink="/film/{{filmTitle.imdbID}}" (click)="onCloseSearch()">{{filmTitle.Title}}</a>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--</div>-->
