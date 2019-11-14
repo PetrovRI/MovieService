@@ -1,12 +1,20 @@
-export class Film {
-  constructor(
+export interface Film {
      Title: string,
      Year: string,
      imdbID: string,
      Type: string,
      poster: string
-  ) {}
 }
+
+// export class Film {
+//   constructor(
+//     Title: string,
+//     Year: string,
+//     imdbID: string,
+//     Type: string,
+//     poster: string
+//   ) {}
+// }
 
 export class FilmItem {
   constructor(

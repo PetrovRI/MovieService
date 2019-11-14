@@ -1,7 +1,7 @@
 <div class="film-list">
   <ul class="film-list__list">
     <li class="film-list__item" *ngFor="let item of (filmState | async).films">
-      <a [routerLink]="['/film', item.Title]">
+      <a [routerLink]="['/film', item.imdbID]">
         <div class="film-list__img">
           <img src={{item.Poster}} alt="" >
         </div>

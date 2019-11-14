@@ -15,26 +15,33 @@ export class DataService {
 
   public films: Film[] = [];
   public film: SearchFilm = {};
-  public apiUrlSuperman = 'http://www.omdbapi.com/?apikey=9816ce92&s=superman';
-  public apiUrlAll = 'http://www.omdbapi.com/?apikey=9816ce92&t=';
+  public apiUrlAllFilms = 'http://www.omdbapi.com/?apikey=9816ce92&s=old';
+  public apiUrlAll = 'http://www.omdbapi.com/?apikey=9816ce92&s=';
+  public apiUrlSearchId = 'http://www.omdbapi.com/?apikey=9816ce92&i=';
+  // public apiUrlAll = 'http://www.omdbapi.com/?apikey=9816ce92&t=';
 
 
   getData() {
-    this.http.get<IFilms>(this.apiUrlSuperman).subscribe((data: IFilms) => {
+    this.http.get<IFilms>(this.apiUrlAllFilms).subscribe((data: IFilms) => {
       this.films = data.Search;
       this.store.dispatch(new LoadFilms(this.films));
     });
   }
 
-  getFilmTitle(title: string): Observable<SearchFilm> {
-    return this.http.get<SearchFilm>(this.apiUrlAll + '/' + title);
+  // getFilmTitle(title: string): Observable<SearchFilm> {
+  //   return this.http.get<SearchFilm>(this.apiUrlAll + '/' + title);
+  // }
+
+  getFilmId(id: string): Observable<SearchFilm> {
+    return this.http.get<SearchFilm>(this.apiUrlSearchId + id + '&plot=full');
   }
 
-  getSearchFilm(searchValue: string) {
-    this.http.get<SearchFilm>(`${this.apiUrlAll}${searchValue}`).subscribe((data: IFilms) => {
-      console.log(data);
+  getSearchFilm(searchValue: string): Observable<IFilms> {
+    this.http.get<IFilms>(`${this.apiUrlAll}${searchValue}`).subscribe((data: IFilms) => {
       this.film = data;
+      console.log(data);
     });
+    return this.http.get<IFilms>(`${this.apiUrlAll}${searchValue}`);
   }
 }
 
