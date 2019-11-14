@@ -1,0 +1,22 @@
+
+    <div class="example-input">
+      <input
+        class="size"
+        #search
+        placeholder="поиск"
+        nz-input
+        [(ngModel)]="value"
+        (ngModelChange)="onSearchInput($event)"
+        [nzAutocomplete]="auto"
+        (click)="isOpen()"
+      />
+
+      <nz-autocomplete #auto >
+        <div *ngIf="isShow">
+        <nz-auto-option *ngFor="let option of products">
+            <a routerLink="/film/{{option.imdbID}}" (click)="isClose(); search.blur() ;search.value = ''">{{option.Title}}</a>
+        </nz-auto-option>
+        </div>
+      </nz-autocomplete>
+
+    </div>
