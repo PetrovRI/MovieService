@@ -3,6 +3,7 @@
     <div class="film-item__img">
       <img [src]="film.Poster" alt="">
     </div>
+    <button nz-button nzType="primary" (click)="onAdd(film)">добавить в избранное</button>
     <div class="film-item__description">
       <h3 class="film-item__title">{{film.Title}}</h3>
       <ul>

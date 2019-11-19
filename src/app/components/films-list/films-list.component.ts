@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from '../../shared/data.service';
 import {Store} from '@ngrx/store';
+import {AddFilm} from '../../store/actions/films.action';
 import {IAppState} from '../../store/app.state';
 import {Observable} from 'rxjs';
 import {Film, IFilms, FilmItem} from '../../models/film.model';
 import {ActivatedRoute} from '@angular/router';
+// import ADD_FILM = FILM_ACTION.ADD_FILM;
 
 @Component({
   selector: 'app-films-list',
@@ -19,9 +21,13 @@ export class FilmsListComponent implements OnInit {
 
   // постоянная подписка.
   public filmState: Observable<{films: Film[]}>;
-  // public filmState: Observable<IFilms>;
+
 
   ngOnInit() {
     this.filmState = this.store.select('filmPage');
+  }
+
+  onAdd(film: FilmItem) {
+    this.store.dispatch(new AddFilm(film));
   }
 }

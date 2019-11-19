@@ -1,7 +1,8 @@
-import { Film } from '../models/film.model';
+import {Film, SearchFilm} from '../models/film.model';
 
 export interface IAppState {
   filmPage: {
-    films: Film[]
+    films: Film[],
+    favoriteFilms: SearchFilm[]
   };
 }

@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 // store
 import {StoreModule} from '@ngrx/store';
-import {reducer} from "./store/reducers/films.reducer";
+import {reducer} from './store/reducers/films.reducer';
 
 // components
 import { AppComponent } from './app.component';
@@ -31,6 +31,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { FooterComponent } from './components/footer/footer.component';
+import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
+import { FavoritesListComponent } from './components/favorites-list/favorites-list.component';
 
 registerLocaleData(en);
 
@@ -38,6 +40,7 @@ const appRoutes: Routes = [
   { path: '', component: HomePageComponent},
   { path: 'film/:id', component: FilmPageComponent},
   { path: 'filmslist', component: FilmsListPageComponent},
+  { path: 'favoriteslist', component: FavoritesListComponent},
 ];
 
 @NgModule({
@@ -53,6 +56,8 @@ const appRoutes: Routes = [
     PromoSliderComponent,
     SearchInputComponent,
     FooterComponent,
+    FavoritesPageComponent,
+    FavoritesListComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

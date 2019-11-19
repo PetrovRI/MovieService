@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainNavigationComponent implements OnInit {
   navItem = [
-    {section: 'Избранное', routerLink: ''},
     {section: 'Фильмы', routerLink: '/filmslist'},
+    {section: 'Избранное', routerLink: '/favoriteslist'},
     {section: 'Рейтинги', routerLink: ''},
     {section: 'Медиа', routerLink: ''}
   ];

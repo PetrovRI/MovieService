@@ -42,8 +42,36 @@ export interface Rating {
   ];
 
 }
-export class SearchFilm {
-  constructor(
+// export class SearchFilm {
+//   constructor(
+//     Title: string,
+//     Rated: string,
+//     Released: string,
+//     Runtime: string,
+//     Genre: string,
+//     Director: string,
+//     Writer: string,
+//     Actors: string,
+//     Plot: string,
+//     Language: string,
+//     Country: string,
+//     Awards: string,
+//     Poster: string,
+//     Ratings: Rating,
+//     Metascore: string,
+//     imdbRating: string,
+//     imdbVotes: string,
+//     imdbID: string,
+//     Type: string,
+//     BoxOffice: string,
+//     Production?: string,
+//     Website?: string,
+//     Response?: string
+//   ) {}
+// }
+
+export interface SearchFilm {
+
     Title: string,
     Rated: string,
     Released: string,
@@ -67,7 +95,7 @@ export class SearchFilm {
     Production?: string,
     Website?: string,
     Response?: string
-  ) {}
+
 }
 
 
