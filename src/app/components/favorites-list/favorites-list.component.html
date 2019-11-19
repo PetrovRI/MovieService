@@ -9,17 +9,16 @@
     >
       <ng-template #item let-item>
         <nz-list-item
-
           [nzContent]="item ? '' : 'content'"
-          [nzActions]="isOk ? [] : [editAction, moreAction]"
+          [nzActions]="initLoading ? [] : [editAction]"
         >
           <nz-skeleton [nzAvatar]="true" [nzActive]="true" [nzTitle]="false" [nzLoading]="false">
-            <ng-template #editAction><a (click)="onDelete(item)">удалить</a></ng-template>
-            <ng-template #moreAction><a (click)="onDelete(item)">повысить</a></ng-template>
+            <ng-template #editAction><a (click)="onDelete(item.imdbID)">удалить</a></ng-template>
+<!--            <ng-template #moreAction><a (click)="onDelete(item)">повысить</a></ng-template>-->
             <nz-list-item-meta
               [nzTitle]="nzTitle"
               [nzAvatar]="item.Poster"
-              [nzDescription]="item.Year"
+              [nzDescription]="item.Year + ' ' + 'год'"
             >
               <ng-template #nzTitle>
                 <a [routerLink]="['/film', item.imdbID]">{{ item.Title }}</a>

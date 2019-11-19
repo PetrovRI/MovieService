@@ -20,10 +20,11 @@ export function reducer(state = initialState, action: FilmAction) {
           favoriteFilms: [...state.favoriteFilms, action.payload]
         };
       }
-      // return {
-      //   ...state,
-      //   favoriteFilms: [...state.favoriteFilms, action.payload]
-      // };
+    case FILM_ACTION.DELETE_FILM:
+      return {
+        ...state,
+        cars: [...state.favoriteFilms.filter(film => film.imdbID === action.payload.imdbID)]
+      };
     default:
       return state;
   }

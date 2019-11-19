@@ -4,6 +4,7 @@ import {Film, FilmItem} from '../../models/film.model';
 export namespace FILM_ACTION {
   export const LOAD_FILM = 'LOAD__FILM';
   export const ADD_FILM = 'ADD_FILM';
+  export const DELETE_FILM = 'DELETE_FILM';
 }
 
 export class LoadFilms implements Action {
@@ -16,5 +17,9 @@ export class AddFilm implements Action {
   constructor(public payload: FilmItem) {}
 }
 
+export class DeleteFilm implements Action {
+  readonly type = FILM_ACTION.DELETE_FILM;
+  constructor(public payload: FilmItem) {}
+}
 
-export type FilmAction = LoadFilms | AddFilm;
+export type FilmAction = LoadFilms | AddFilm | DeleteFilm;
