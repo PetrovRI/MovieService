@@ -23,7 +23,7 @@ export function reducer(state = initialState, action: FilmAction) {
     case FILM_ACTION.DELETE_FILM:
       return {
         ...state,
-        cars: [...state.favoriteFilms.filter(film => film.imdbID === action.payload.imdbID)]
+        favoriteFilms: [...state.favoriteFilms.filter(film => film.imdbID !== action.payload)]
       };
     default:
       return state;

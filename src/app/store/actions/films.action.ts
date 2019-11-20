@@ -19,7 +19,7 @@ export class AddFilm implements Action {
 
 export class DeleteFilm implements Action {
   readonly type = FILM_ACTION.DELETE_FILM;
-  constructor(public payload: FilmItem) {}
+  constructor(public payload: number) {}
 }
 
 export type FilmAction = LoadFilms | AddFilm | DeleteFilm;

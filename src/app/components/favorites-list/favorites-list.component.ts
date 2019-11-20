@@ -1,4 +1,3 @@
-// tslint:disable:no-any
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NzMessageService } from 'ng-zorro-antd/message';
@@ -6,7 +5,7 @@ import {Store} from '@ngrx/store';
 import {IAppState} from '../../store/app.state';
 import {Observable} from 'rxjs';
 import {SearchFilm} from '../../models/film.model';
-
+import {DeleteFilm} from '../../store/actions/films.action';
 const count = 2;
 
 @Component({
@@ -15,10 +14,8 @@ const count = 2;
   styleUrls: ['./favorites-list.component.scss']
 })
 export class FavoritesListComponent implements OnInit {
-  isOk = true;
   initLoading = true; // bug
   loadingMore = false;
-  data: any[] = [];
   list: Array<{ loading: boolean; name: any }> = [];
   filmState: Observable<{ favoriteFilms: SearchFilm[]}>;
 
@@ -30,16 +27,9 @@ export class FavoritesListComponent implements OnInit {
   }
 
   onLoadMore(): void {
-    // this.loadingMore = true;
-    // this.list = this.data.concat([...Array(count)].fill({}).map(() => ({ loading: true, name: {} })));
-    // this.http.get().subscribe((res: any) => {
-    //   this.data = this.data.concat(res.results);
-    //   this.list = [...this.data];
-    //   this.loadingMore = false;
-    // });
   }
 
-  onDelete(item: any): void {
-    this.msg.success(item.email);
+  onDelete(id: number) {
+    this.store.dispatch(new DeleteFilm(id));
   }
 }

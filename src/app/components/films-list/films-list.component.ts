@@ -6,7 +6,6 @@ import {IAppState} from '../../store/app.state';
 import {Observable} from 'rxjs';
 import {Film, IFilms, FilmItem} from '../../models/film.model';
 import {ActivatedRoute} from '@angular/router';
-// import ADD_FILM = FILM_ACTION.ADD_FILM;
 
 @Component({
   selector: 'app-films-list',
