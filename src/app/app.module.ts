@@ -18,11 +18,12 @@ import { FilmItemComponent } from './components/film-item/film-item.component';
 import { FilmPageComponent } from './pages/film-page/film-page.component';
 import { PromoSliderComponent } from './components/promo-slider/promo-slider.component';
 import { SearchInputComponent } from './components/search-input/search-input.component';
+import { FavoritesListComponent } from './components/favorites-list/favorites-list.component';
 
 // pages
 import {HomePageComponent} from './pages/home-page/home-page.component';
 import {FilmsListPageComponent} from './pages/films-list-page/films-list-page.component';
-
+import {FavoritesPageComponent} from './pages/favorites-page/favorites-page.component';
 //
 import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -31,8 +32,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { FooterComponent } from './components/footer/footer.component';
-import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
-import { FavoritesListComponent } from './components/favorites-list/favorites-list.component';
 
 registerLocaleData(en);
 

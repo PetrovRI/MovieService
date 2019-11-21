@@ -14,12 +14,10 @@ export class DataService {
   constructor(private http: HttpClient, private store: Store<IAppState>) {}
 
   public films: Film[] = [];
-  public film: SearchFilm = {};
+  public film: {} = {};
   public apiUrlAllFilms = 'http://www.omdbapi.com/?apikey=9816ce92&s=old';
   public apiUrlAll = 'http://www.omdbapi.com/?apikey=9816ce92&s=';
   public apiUrlSearchId = 'http://www.omdbapi.com/?apikey=9816ce92&i=';
-  // public apiUrlAll = 'http://www.omdbapi.com/?apikey=9816ce92&t=';
-
 
   getData() {
     this.http.get<IFilms>(this.apiUrlAllFilms).subscribe((data: IFilms) => {
@@ -28,10 +26,6 @@ export class DataService {
     });
   }
 
-  // getFilmTitle(title: string): Observable<SearchFilm> {
-  //   return this.http.get<SearchFilm>(this.apiUrlAll + '/' + title);
-  // }
-
   getFilmId(id: string): Observable<SearchFilm> {
     return this.http.get<SearchFilm>(this.apiUrlSearchId + id + '&plot=full');
   }
@@ -39,7 +33,6 @@ export class DataService {
   getSearchFilm(searchValue: string): Observable<IFilms> {
     this.http.get<IFilms>(`${this.apiUrlAll}${searchValue}`).subscribe((data: IFilms) => {
       this.film = data;
-      console.log(data);
     });
     return this.http.get<IFilms>(`${this.apiUrlAll}${searchValue}`);
   }

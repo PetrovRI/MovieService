@@ -9,7 +9,6 @@
     >
       <ng-template #item let-item>
         <nz-list-item
-          [nzContent]="item ? '' : 'content'"
           [nzActions]="initLoading ? [] : [editAction]"
         >
           <nz-skeleton [nzAvatar]="true" [nzActive]="true" [nzTitle]="false" [nzLoading]="false">
