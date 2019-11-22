@@ -1,0 +1,18 @@
+
+    <div style="margin-bottom: 8px;"><button nz-button >Switch Data</button></div>
+    <nz-list [nzDataSource]="(filmState | async).films" [nzRenderItem]="item" [nzItemLayout]="'horizontal'" [nzLoading]="">
+      <ng-template #item let-item>
+        <nz-list-item>
+          <nz-list-item-meta
+            [nzTitle]="nzTitle"
+            [nzAvatar]="item.Poster"
+            [nzDescription]="item.Year"
+          >
+            <ng-template #nzTitle>
+              <a href="https://ng.ant.design">{{ item.Title}}</a>
+            </ng-template>
+
+          </nz-list-item-meta>
+        </nz-list-item>
+      </ng-template>
+    </nz-list>

@@ -32,14 +32,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { FooterComponent } from './components/footer/footer.component';
+import { RatingListComponent } from './components/rating-list/rating-list.component';
+import { RatingPageComponent } from './pages/rating-page/rating-page.component';
 
 registerLocaleData(en);
 
 const appRoutes: Routes = [
   { path: '', component: HomePageComponent},
   { path: 'film/:id', component: FilmPageComponent},
-  { path: 'filmslist', component: FilmsListPageComponent},
-  { path: 'favoriteslist', component: FavoritesListComponent},
+  { path: 'films', component: FilmsListPageComponent},
+  { path: 'favorites', component: FavoritesListComponent},
+  { path: 'rating', component: RatingPageComponent},
 ];
 
 @NgModule({
@@ -57,6 +60,8 @@ const appRoutes: Routes = [
     FooterComponent,
     FavoritesPageComponent,
     FavoritesListComponent,
+    RatingListComponent,
+    RatingPageComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
