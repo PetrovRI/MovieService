@@ -1,47 +1,73 @@
 <div class="film-item">
+  <div class="film-item__wrapper-title">
+    <small>Фильм</small>
+    <h3 class="film-item__title">{{film.Title}}</h3>
+  </div>
   <div class="film-item__wrapper-description">
-    <div class="film-item__img">
-      <img [src]="film.Poster" alt="">
+    <div class="film-item__wrapper-img">
+      <div class="film-item__img">
+        <img [src]="film.Poster" alt="">
+        <i nz-icon nzType="star"
+           nz-tooltip
+           nzTooltipTitle="Добавить фильм в избранное"
+           nzTheme="outline"
+           class="star"
+           (click)="onAdd(film)"
+           [hidden]="isStarHidden"
+        ></i>
+        <i nz-icon nzType="star"
+           nz-tooltip
+           nzTooltipTitle="Убрать фильм из избранного"
+           nzTheme="fill"
+           class="star"
+           (click)="onDelete(film.imdbID)"
+           [hidden]="!isStarHidden"
+        ></i>
+      </div>
     </div>
-    <button nz-button nzType="primary" (click)="onAdd(film)">добавить в избранное</button>
+
     <div class="film-item__description">
-      <h3 class="film-item__title">{{film.Title}}</h3>
       <ul>
         <li>
-          <span>Год</span>{{film.Year}}
+          <span>Год: </span>{{film.Year}}
         </li>
         <li>
-          <span>Страна</span>{{film.Country}}
+          <span>Страна: </span>{{film.Country}}
         </li>
         <li>
-          <span>Студия</span>{{film.Production}}
+          <span>Студия: </span>{{film.Production}}
         </li>
         <li>
-          <span>Время</span>{{film.Metascore}}
+          <span>Время: </span>{{film.Metascore}} мин.
         </li>
         <li>
-          <span>Жанр</span>{{film.Genre}}
+          <span>Жанр: </span>{{film.Genre}}
         </li>
         <li>
-          <span>Продюсер</span>{{film.Director}}
+          <span>Продюсер: </span>{{film.Director}}
         </li>
         <li>
-          <span>Сценарий</span>{{film.Writer}}
+          <span>Сценарий: </span>{{film.Writer}}
         </li>
         <li>
-          <span>Язык</span>{{film.Language}}
+          <span>Язык: </span>{{film.Language}}
         </li>
         <li>
-          <span>Награды</span>{{film.Awards}}
+          <span>Награды: </span>{{film.Awards}}
         </li>
       </ul>
     </div>
     <div class="film-item__actors">
       <span>В ролях</span>
       <ul class="film-item__actor-list">
-        <li class="film-item__actor-item">{{film.Actors}}</li>
+        <li class="film-item__actor-item">{{film.Actors}} <br></li>
       </ul>
     </div>
+  </div>
+  <div>
+    <h3>Рейтинг фильма</h3>
+    <nz-rate [ngModel]="this.dataService.getRating(film.imdbRating)" nzDisabled nzAllowHalf></nz-rate>
+    <span>{{film.imdbRating}}</span>/ IMDb
   </div>
   <div>
     <p>{{film.Plot}}</p>

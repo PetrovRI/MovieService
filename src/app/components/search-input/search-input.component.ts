@@ -14,7 +14,7 @@ export class SearchInputComponent implements OnInit {
   public value: string;
   public products: Film[] = [];
   public stream$ = new Subject<string>();
-  public film: SearchFilm = {};
+  public film: SearchFilm;
   constructor(public service: DataService) {}
 
   ngOnInit(): void {

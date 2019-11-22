@@ -19,7 +19,7 @@ export class DataService {
   public apiUrlAll = 'http://www.omdbapi.com/?apikey=9816ce92&s=';
   public apiUrlSearchId = 'http://www.omdbapi.com/?apikey=9816ce92&i=';
 
-  getData() {
+  getFilmList() {
     this.http.get<IFilms>(this.apiUrlAllFilms).subscribe((data: IFilms) => {
       this.films = data.Search;
       this.store.dispatch(new LoadFilms(this.films));
@@ -35,6 +35,29 @@ export class DataService {
       this.film = data;
     });
     return this.http.get<IFilms>(`${this.apiUrlAll}${searchValue}`);
+  }
+
+  getRating(ratingIndex: string) {
+    const rating = +ratingIndex;
+    switch (true) {
+      case (rating >= 0 && rating <= 2):
+        return 1;
+        break;
+      case (rating >= 2 && rating <= 4):
+        return 2;
+        break;
+      case (rating >= 4 && rating <= 6):
+        return 3;
+        break;
+      case (rating >= 6 && rating <= 8):
+        return 4;
+        break;
+      case (rating >= 8 && rating <= 10):
+        return 5;
+        break;
+      default:
+        break;
+    }
   }
 }
 
